@@ -5,7 +5,7 @@ class FacebookLinkCleanerTest < Minitest::Test
     refute_nil ::FacebookLinkCleaner::VERSION
   end
 
-  def test_it_does_something_useful
-    assert false
+  def test_it
+    assert_equal 'bob', FacebookLinkCleaner.clean('http://facebook.com/bob')
   end
 end
