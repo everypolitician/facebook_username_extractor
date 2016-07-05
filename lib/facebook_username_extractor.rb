@@ -4,6 +4,10 @@ module FacebookUsernameExtractor
   def self.extract(page)
     return if page.to_s.empty?
     page = page.split(/(?=https?:)/).first
+    # Anything after #!
+    unless (matched = page.match /\#\!\/([^\?]+)/).nil?
+      return matched.captures.last
+    end
     return page[/profile.php\?id=(\w+)/, 1] if page.include? 'profile.php'
     page = page
            .sub(%r{^https?://}, '')
