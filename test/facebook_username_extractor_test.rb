@@ -36,4 +36,8 @@ class FacebookUsernameExtractorTest < Minitest::Test
   def test_kelly
     assert_equal 'jeffrey.kelly.35574', FacebookUsernameExtractor.extract('https://www.facebook.com/search/results.php?init=quick&q=Clarisca%20Nereida%20Velasquez&tas=0.23712987835773125#!/jeffrey.kelly.35574?fref=ts')
   end
+
+  def test_fb_com
+    assert_equal 'MichelleDonelanChippenham', FacebookUsernameExtractor.extract('http://fb.com/MichelleDonelanChippenham')
+  end
 end
